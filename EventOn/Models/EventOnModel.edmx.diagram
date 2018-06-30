@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81ada02d81e941fa8c13747ed83f661a" Name="Diagram1">
+        <EntityTypeShape EntityType="EventOnModel.Business" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="EventOnModel.Category" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="EventOnModel.Event" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="EventOnModel.Sector" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="EventOnModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="EventOnModel.User" Width="1.5" PointX="0.75" PointY="5.75" />
+        <AssociationConnector Association="EventOnModel.FK_Business_Sector" />
+        <AssociationConnector Association="EventOnModel.FK_Business_User" />
+        <AssociationConnector Association="EventOnModel.FK_Event_Business" />
+        <AssociationConnector Association="EventOnModel.FK_Event_Category" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

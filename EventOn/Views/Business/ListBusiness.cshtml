@@ -1,0 +1,150 @@
+﻿@model EventOn.ViewModel.BusinessViewModel.ListBusinessViewModel
+@{
+    ViewBag.Title = "Lista de Negocios";
+    ViewBag.Section = "Negocio";
+    int numero = 0;
+
+}
+<div class="row clearfix js-sweetalert">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header col-md-12 col-xs-12">
+                <h1>
+                    <i class="material-icons">person</i>
+                    @ViewBag.Title
+                </h1>
+            </div>
+            <div class=" form-group col-md-4 col-sm-4 col-xs-4 pull-right top_search">
+                <form action="@Url.Action("ListBusiness")" method="post" name="form">
+                    <div class="input-group">
+                        @Html.TextBoxFor(x => x.Filtro, new { @type = "text", @placeholder = "Nombre de negocio a buscar", @class = "form-control" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="body">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>NOMBRE NEGOCIO</th>
+                            <th>RUC NUMBER</th>
+                            <th>TELEFONO DE NEGOCIO</th>
+                            <th>NOMBRE DE CONTACTO</th>
+                            <th>TELEFONO DE CONTACTO</th>
+                            <th>USUARIO</th>
+                            <th>SECTOR</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>NOMBRE NEGOCIO</th>
+                            <th>RUC NUMBER</th>
+                            <th>TELEFONO DE NEGOCIO</th>
+                            <th>NOMBRE DE CONTACTO</th>
+                            <th>TELEFONO DE CONTACTO</th>
+                            <th>USUARIO</th>
+                            <th>SECTOR</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.ListBusiness)
+                        {
+                            numero++;
+                            <tr>
+                                <td>@item.businessName</td>
+                                <td>@item.RUCNumber</td>
+                                <td>@item.businessPhone</td>
+                                <td>@item.contactName</td>
+                                <td>@item.contactPhone</td>
+                                <td>@item.User.userName</td>
+                                <td>@item.Sector.sectorName</td>
+                                <td>
+                                    <button class="btn bg-blue waves-effect" style="height: 20px; font-size:11px" onclick="goEdit(@numero)">Editar</button>
+                                    <a id="edit+@numero" class="btn bg-blue waves-effect" style="height: 20px; font-size:11px; display:none" href="@Url.Action("AddEditBusiness", "Business",new { businessid = item.idBusiness })">
+                                        Editar
+                                    </a>&nbsp;
+                                    <button class="btn bg-red waves-effect" style="height: 20px; font-size:11px" onclick="ConfirmDemo(@numero)">
+                                        Eliminar
+                                    </button>
+                                    <a href="@Url.Action("DeleteBusiness", "Business", new { businessid = item.idBusiness })" style="display:none" id="@numero"></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-heading">
+                <button id="negocioAdd" class="btn bg-blue-grey waves-effect" onclick="clickAdd()">Nuevo Negocio</button>
+                <a id="addHrefnegocio" href="@Url.Action("AddEditBusiness", "Business")" style="visibility:hidden"></a>
+            </div>
+        </div>
+    </div>
+</div>
+@*<a onclick="ConfirmDemo()" />Presiona acá</a>*@
+<!-- #END# Exportable Table -->
+<!-- Jquery Core Js -->
+<script src="@Url.Content("~/Content/plugins/jquery/jquery.min.js")"></script>
+<!-- Bootstrap Core Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap/js/bootstrap.js")"></script>
+<!-- Select Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap-select/js/bootstrap-select.js")"></script>
+<!-- Slimscroll Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/jquery-slimscroll/jquery.slimscroll.js")"></script>
+<!-- Bootstrap Notify Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap-notify/bootstrap-notify.js")"></script>
+<!-- Waves Effect Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/node-waves/waves.js")"></script>
+<!-- SweetAlert Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/sweetalert/sweetalert.min.js")"></script>
+<!-- Jquery DataTable Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/jquery.dataTables.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/buttons.flash.min.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/jszip.min.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/pdfmake.min.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/vfs_fonts.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/buttons.html5.min.js")"></script>
+<script src="@Url.Content("~/Content/plugins/jquery-datatable/extensions/export/buttons.print.min.js")"></script>
+<!-- Custom Js -->
+<script src="@Url.Content("~/Content/js/admin.js")"></script>
+<script src="@Url.Content("~/Content/js/pages/tables/jquery-datatable.js")"></script>
+<script src="@Url.Content("~/Content/js/pages/ui/dialogs.js")"></script>
+<!-- Demo Js -->
+<script src="@Url.Content("~/Content/js/demo.js")"></script>
+<script type="text/javascript">
+    function ConfirmDemo(n) {
+        swal({
+            title: "Esta seguro de eliminar?",
+            text: "Ya no volvera a ver este registro",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Si, deseo eliminar!",
+            cancelButtonText: "Cancelar",
+            closeOnConfirm: false
+        }, function () {
+            swal("Eliminado!", "El registro se elimino con exito.", "success");
+            location = $(this).attr("href")
+            location = document.getElementById(n).href;
+        });
+    }
+
+    function clickAdd() {
+        var item = document.getElementById("addHrefnegocio");
+        item.click();
+    }
+
+    function goEdit(n) {
+        var idSelected = "edit+"+n;
+        console.log(idSelected);
+        var item = document.getElementById(idSelected);
+
+        item.click();
+    }
+</script>
+

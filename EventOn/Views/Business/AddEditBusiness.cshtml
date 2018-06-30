@@ -1,0 +1,116 @@
+﻿@model EventOn.ViewModel.BusinessViewModel.AddEditBusinessViewModel
+@{
+    ViewBag.Title = "Negocio";
+    ViewBag.SubTitle = Model.businessID.HasValue ? "Editar" : "Agregar";
+    ViewBag.Section = "Negocio";
+}
+<!-- Vertical Layout | With Floating Label -->
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h1>
+                    <i class="material-icons">library_books</i>
+                    @ViewBag.SubTitle @ViewBag.Title
+                </h1>
+            </div>
+            <div class="body">
+                <form method="post" action="@Url.Action("AddEditBusiness", "Business")">
+                    @if (Model.businessID.HasValue)
+                    {
+                        @Html.HiddenFor(x => x.businessID)
+                        @Html.HiddenFor(x => x.tieneValor, true)
+                    }
+                    <label for="nombre">Nombre Negocio</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.TextBoxFor(x => x.objectBusiness.businessName, new {  @class = "form-control", @id = "businessName", @type = "text", @placeholder = "Nombre del negocio. Ejm alicorp" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.businessName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label for="nombre">RUC Number</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.TextBoxFor(x => x.objectBusiness.RUCNumber, new {@class = "form-control", @id ="RUCNumber", @type = "text", @placeholder = "Numero de RUC" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.RUCNumber, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label for="nombre">Telefono de negocio</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.TextBoxFor(x => x.objectBusiness.businessPhone, new { @class = "form-control", @id = "businessPhone", @type = "text", @placeholder = "Telefono de negocio" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.businessPhone, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label for="nombre">Nombre de Contacto</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.TextBoxFor(x => x.objectBusiness.contactName, new { @class = "form-control", @id = "contactName", @type = "text", @placeholder = "Nombre de contacto" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.contactName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label for="nombre">Contact Phone</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.TextBoxFor(x => x.objectBusiness.contactPhone, new { @class = "form-control", @id = "contactPhone", @type = "text", @placeholder = "Telefono de contacto" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.contactPhone, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label>User</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.DropDownListFor(x => x.objectBusiness.idUser, new SelectList(Model.ListUsers, "idUser", "userName"), "Seleccione un user", new {@id ="lista-user" ,@class = "form-control show-tick" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.idUser, "", new { @class = "text-danger" })
+                    </div>
+
+                    <label>Sector</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            @Html.DropDownListFor(x => x.objectBusiness.idSector, new SelectList(Model.ListSectors, "idSector", "sectorName"), "Seleccione un sector", new { @id = "lista-sector",@class = "form-control show-tick" })
+                        </div>
+                        @Html.ValidationMessageFor(x => x.objectBusiness.idSector, "", new { @class = "text-danger" })
+                    </div>
+
+                    <br>
+                    <button id="guardarNegocio" type="submit" class="btn btn-primary m-t-15 waves-effect">GUARDAR</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vertical Layout | With Floating Label -->
+<script src="@Url.Content("~/Content/plugins/jquery/jquery.min.js")"></script>
+<!-- Bootstrap Core Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap/js/bootstrap.js")"></script>
+<!-- Select Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap-select/js/bootstrap-select.js")"></script>
+<!-- Slimscroll Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/jquery-slimscroll/jquery.slimscroll.js")"></script>
+<!-- Dropzone Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/dropzone/dropzone.js")"></script>
+<!-- Input Mask Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/jquery-inputmask/jquery.inputmask.bundle.js")"></script>
+<!-- Multi Select Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/multi-select/js/jquery.multi-select.js")"></script>
+<!-- Jquery Spinner Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/jquery-spinner/js/jquery.spinner.js")"></script>
+<!-- Bootstrap Tags Input Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js")"></script>
+<!-- noUISlider Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/nouislider/nouislider.js")"></script>
+<!-- Waves Effect Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/node-waves/waves.js")"></script>
+<!-- Custom Js -->
+<script src="@Url.Content("~/Content/js/admin.js")"></script>
+<!-- Demo Js -->
+<script src="@Url.Content("~/Content/js/demo.js")"></script>
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

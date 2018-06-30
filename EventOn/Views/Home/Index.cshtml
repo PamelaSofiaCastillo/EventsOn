@@ -1,0 +1,182 @@
+﻿@model EventOn.ViewModel.IndexViewModel.IndexValueViewModel
+@{
+
+}
+<div class="row clearfix">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="info-box-4 hover-zoom-effect">
+            <div class="icon">
+                <i class="material-icons col-orange">person</i>
+            </div>
+            <div class="content">
+                <div class="text">EVENTO</div>
+                <div class="number">@Model.nroEvent</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="info-box-4 hover-zoom-effect">
+            <div class="icon">
+                <i class="material-icons col-red">library_books</i>
+            </div>
+            <div class="content">
+                <div class="text">BUSINESS</div>
+                <div class="number">@Model.nroBusiness</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="info-box-4 hover-zoom-effect">
+            <div class="icon">
+                <i class="material-icons col-red">category</i>
+            </div>
+            <div class="content">
+                <div class="text">SECTORS</div>
+                <div class="number">@Model.nroSector</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="header bg-orange">
+                <h2>
+                    Evento <small>Gestion de eventos</small>
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                Se almacenan los eventos hechos por las empresa.
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="header bg-blue-grey">
+                <h2>
+                    Business <small>Gestion de los negocios</small>
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons">mic</i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                Se almacenan las empresas registradas.
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+            <div class="header bg-pink">
+                <h2>
+                    Sectors<small>Gestion de los sectores</small>
+                </h2>
+                <ul class="header-dropdown m-r-0">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons">info_outline</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons">help_outline</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                Se almacenan los sectores registrados.
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="row clearfix">
+    <!-- Line Chart -->
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>LINE CHART</h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <canvas id="line_chart" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Line Chart -->
+    <!-- Bar Chart -->
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>BAR CHART</h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <canvas id="bar_chart" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Bar Chart -->
+</div>*@
+
+
+<!-- Jquery Core Js -->
+<script src="@Url.Content("~/Content/plugins/jquery/jquery.min.js")"></script>
+<!-- Bootstrap Core Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap/js/bootstrap.js")"></script>
+<!-- Select Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/bootstrap-select/js/bootstrap-select.js")"></script>
+<!-- Slimscroll Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/jquery-slimscroll/jquery.slimscroll.js")"></script>
+<!-- Waves Effect Plugin Js -->
+<script src="@Url.Content("~/Content/plugins/node-waves/waves.js")"></script>
+<!-- Chart Plugins Js -->
+<script src="@Url.Content("~/Content/plugins/chartjs/Chart.bundle.js")"></script>
+<!-- Custom Js -->
+<script src="@Url.Content("~/Content/js/admin.js")"></script>
+<script src="@Url.Content("~/Content/js/pages/charts/chartjs.js")"></script>
+<!-- Demo Js -->
+<script src="@Url.Content("~/Content/js/demo.js")"></script>
